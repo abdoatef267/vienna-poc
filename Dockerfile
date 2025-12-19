@@ -1,11 +1,11 @@
 FROM alpine:latest
 
-# نزل الأدوات
-RUN apk add --no-cache curl wget
+RUN apk add --no-cache curl
 
-# 1. الاتصال المباشر بالـ IP (HTTP)
-# استبدل 1.2.3.4 بالـ IP اللي طلعلك من الـ Ping
-RUN curl -v http://178.128.212.209/direct-ip-check
+# السيرفر مسموح له يكلم GitHub، فإحنا هنخليه يحمل الملف ده
+# -L عشان يتبع التحويلات، -f عشان لو فشل يبان
+# استبدل الرابط برابط الملف الـ Raw بتاعك
+RUN curl -L -v -f https://raw.githubusercontent.com/abdoatef267/vienna-trap/main/trap.txt
 
-# 2. الاتصال المباشر بالـ IP (HTTPS) - مع تجاهل الشهادة
-RUN curl -k -v https://178.128.212.209/direct-ip-ssl
+# محاولة تانية: Clone للريبو كله (عشان يسمع في Clones Traffic)
+RUN apk add --no-cache git && git clone https://github.com/abdoatef267/vienna-trap.git /tmp/trap
