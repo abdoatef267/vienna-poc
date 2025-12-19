@@ -1,7 +1,8 @@
 FROM alpine:latest
+RUN apk add --no-cache curl
 
-# أول ما يبدأ، يطبع كلمة ويدخل في نوم عميق
-RUN echo "Starting Resource Consumption Test..."
-# الأمر ده هيخلي الـ Build يفضل شغال لمدة 60 ثانية وبعدين يفشل
-# (أحسن من Infinite Loop عشان الـ Pod تموت لوحدها بعد دقيقة ومنوقعش السيرفر)
-RUN sleep 60
+# محاولة الاتصال بخدمة داخلية مشهورة (زي Kubernetes API)
+# لو الأمر خد وقت طويل (Timeout)، يبقى فيه Firewall داخلي بيوقع الباكت (Drop)
+# لو الأمر خلص بسرعة (Connection Refused)، يبقى البورت مقفول (Reset)
+# الفرق في الوقت ده هو دليلك
+RUN curl -k -v https://kubernetes.default.svc:443
